@@ -155,6 +155,11 @@ binding_modes:
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
+  # workaround for https://github.com/glzr-io/glazewm/issues/882#issuecomment-2568126919  
+  - name: 'paused'
+    keybindings:
+      - commands: ['wm-disable-binding-mode --name paused']
+        bindings: ['alt+shift+p']
 
 keybindings:
   # Shift focus in a given direction.
@@ -195,7 +200,9 @@ keybindings:
 
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
-  - commands: ['wm-toggle-pause']
+  # - commands: ['wm-toggle-pause']
+  #   bindings: ['alt+shift+p']
+  - commands: ['wm-enable-binding-mode --name paused']
     bindings: ['alt+shift+p']
 
   # Change tiling direction. This determines where new tiling windows will
