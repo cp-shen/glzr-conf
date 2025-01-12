@@ -112,22 +112,31 @@ window_behavior:
 workspaces:
   - name: '1'
     display_name: '网页 (1)'
+    bind_to_monitor: 0
   - name: '2'
     display_name: '终端 (2)'
+    bind_to_monitor: 0
   - name: '3'
     display_name: '代码 (3)'
+    bind_to_monitor: 1
   - name: '4'
-    display_name: '工作区 (4)'
+    display_name: '系统 (4)'
+    bind_to_monitor: 1
   - name: '5'
-    display_name: '工作区 (5)'
+    display_name: '音乐 (5)'
+    bind_to_monitor: 1
   - name: '6'
-    display_name: '工作区 (6)'
+    display_name: '通信 (6)'
+    bind_to_monitor: 1
   - name: '7'
-    display_name: '工作区 (7)'
+    display_name: '娱乐 (7)'
+    bind_to_monitor: 1
   - name: '8'
     display_name: '工作区 (8)'
+    bind_to_monitor: 1
   - name: '9'
     display_name: '工作区 (9)'
+    bind_to_monitor: 1
 
 window_rules:
   - commands: ['move --workspace 1']
@@ -139,6 +148,19 @@ window_rules:
   - commands: ['move --workspace 3']
     match:
       - window_process: { regex: 'Code|rider64'}
+  - commands: ['move --workspace 4']
+    match:
+      - window_process: { regex: '[Cc]lash.*'}
+  - commands: ['move --workspace 5']
+    match:
+      - window_process: { equals: 'QQMusic'}
+  - commands: ['move --workspace 6']
+    match:
+      - window_process: { equals: 'WeChat'}
+  - commands: ['move --workspace 7']
+    match:
+      - window_process: { equals: 'HuyaClient'}
+      - window_process: { equals: '哔哩哔哩'}
 
   - commands: ['ignore']
     match:
@@ -156,8 +178,7 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-
-      - window_class: { regex: '.*[Hh]uya.*'}
+      - window_process: { equals: 'Taskmgr' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
