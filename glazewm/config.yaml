@@ -154,6 +154,7 @@ window_rules:
   - commands: ['move --workspace 5']
     match:
       - window_process: { equals: 'QQMusic'}
+      - window_process: { equals: 'foobar2000'}
   - commands: ['move --workspace 6']
     match:
       - window_process: { equals: 'WeChat'}
